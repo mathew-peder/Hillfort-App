@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "516305576016",
+    "firebase_url": "https://hillfortapp-d5727.firebaseio.com",
+    "project_id": "hillfortapp-d5727",
+    "storage_bucket": "hillfortapp-d5727.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516305576016:android:d9bcde484e04ffc3663155",
+        "android_client_info": {
+          "package_name": "org.wit.hillfortapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516305576016-4kai12nv4qt9n7d4civm10icjv7aemng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvcODbLhzpxusLbeR3IN7xqQG796n9pMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516305576016-4kai12nv4qt9n7d4civm10icjv7aemng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
