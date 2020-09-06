@@ -6,15 +6,24 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.jetbrains.anko.AnkoLogger
-import org.wit.hillfortapp.helpers.*
+import org.jetbrains.anko.info
+import org.wit.hillfortapp.helpers.exists
+import org.wit.hillfortapp.helpers.read
+import org.wit.hillfortapp.helpers.write
 import java.util.*
 
 val JSON_FILE = "hillforts.json"
 val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
 val listType = object : TypeToken<java.util.ArrayList<HillfortModel>>() {}.type
+var lastId = 0L
+
 
 fun generateRandomId(): Long {
     return Random().nextLong()
+}
+
+internal fun getId(): Long {
+    return lastId++
 }
 
 class HillfortJSONStore : HillfortStore, AnkoLogger {
@@ -34,19 +43,37 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
     }
 
     override fun create(hillfort: HillfortModel) {
-        hillfort.id = generateRandomId()
+        hillfort.id = getId()
         hillforts.add(hillfort)
-        serialize()
+        logAll()
     }
 
 
     override fun update(hillfort: HillfortModel) {
-        // todo
+        var foundHillfort: HillfortModel? = hillforts.find { h -> h.id == hillfort.id }
+        if (foundHillfort != null) {
+            foundHillfort.title = hillfort.title
+            foundHillfort.description = hillfort.description
+            foundHillfort.image = hillfort.image
+            foundHillfort.lat = hillfort.lat
+            foundHillfort.lng = hillfort.lng
+            foundHillfort.zoom = hillfort.zoom
+            logAll();
+        }
     }
 
     override fun delete(hillfort: HillfortModel) {
-        hillforts.remove(hillfort)
-        serialize()
+        var foundHillfort: HillfortModel? = hillforts.find { h -> h.id == hillfort.id }
+        if (foundHillfort != null) {
+            foundHillfort.title = hillfort.title
+            foundHillfort.description = hillfort.description
+            foundHillfort.image = hillfort.image
+            foundHillfort.lat = hillfort.lat
+            foundHillfort.lng = hillfort.lng
+            foundHillfort.zoom = hillfort.zoom
+            hillforts.remove(hillfort)
+            logAll();
+        }
     }
 
     private fun serialize() {
@@ -57,5 +84,9 @@ class HillfortJSONStore : HillfortStore, AnkoLogger {
     private fun deserialize() {
         val jsonString = read(context, JSON_FILE)
         hillforts = Gson().fromJson(jsonString, listType)
+    }
+
+    fun logAll() {
+        hillforts.forEach { info("${it}") }
     }
 }

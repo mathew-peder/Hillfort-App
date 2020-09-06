@@ -3,7 +3,9 @@
     <string name="hint_hillfortTitle" translatable="false">Hillfort Title</string>
     <string name="hint_hillfortDescription" translatable="false">Description </string>
     <string name="button_addHillfort" translatable="false">Add Hillfort</string>
+    <string name="button_delHillfort" translatable="false">Delete Hillfort</string>
     <string name="menu_addHillfort" translatable="false">Add</string>
+    <string name="menu_delHillfort" translatable="false">Delete</string>
     <string name="menu_cancelHillfort" translatable="false">Cancel</string>
     <string name="button_addImage" translatable="false"> Add Image </string>
     <string name="enter_hillfort_title"> Please enter a Hillfort Title </string>
