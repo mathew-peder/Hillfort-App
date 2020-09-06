@@ -5,6 +5,7 @@ Hillfort App for adding hillforts to a list and collecting images of hillforts a
 Current Features:
 Adding
 Editing
+Deleting
 Locations on Google Maps with Lat/Long
 Cancel
 Placemark JSON
